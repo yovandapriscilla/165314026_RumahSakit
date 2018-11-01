@@ -61,7 +61,7 @@
                 font-family: 'Times New Roman', sans-serif;
                 font-size: 15px;
             }
-            
+
             @media (max-width: 600px) {
                 nav, article {
                     width: 100%;
@@ -80,20 +80,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>  
-                        <span class="icon-bar"></span>                     
+                        <span class="icon-bar"></span>                 
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="tambahKlinik.html">Tambah Klinik</a></li>
                         <li><a href="tambahPasien.html">Tambah Pasien</a></li>
-                        <li><a href="cariPasien.html">Cari Pasien</a></li>
                         <li><a href="antriKlinik.html">Antri Klinik</a></li>
+                        <li><a href="daftarDokter.html">Daftar Dokter</a></li>
                         <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
-                        <li><a href="location.html">Lokasi Rumah Sakit</a></li>
                         <li><a href="login.html">Login</a></li>
                     </ul>
                 </div>
@@ -104,65 +100,64 @@
             <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
                 <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h1><font face="Times New Roman" color=white size="6">Form Antri Klinik</font></h1>
+                    <h1><font face="Times New Roman" color=white size="6">Form Pendaftaran Pasien Konsultasi dan Berobat</font></h1>
                     <br>
                     <input type="text" placeholder="NIK" id="nik" required>
                     <button type="button" onclick="loadDoc()" id="btn"><font face="Century Gothic" size="3">OK</font></button>
 
-                    <br><br>
-                    <input type="text" placeholder="Nama" disabled id="nama" required>
-                    <input type="text" placeholder="Alamat" disabled id="alamat" required><br>
-                    <i>*otomatis berdasarkan NIK</i>
-                    <br>
-                    <font face="Times New Roman" color=white size="3">Tanggal Lahir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tanggal Berobat </font></br>
-                    <input type="date" id="tanggalLahir" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="date" id="tanggalBerobat" required>
-                    <br>
-                    <font face="Times New Roman" color=white size="3">Klinik : </font><br>
-                    <select name="klinik">
-                        <option label="--Silakan Pilih--"></option>
-                        <option value="Umum">Umum</option>
-                        <option value="Ibu dan Anak">Ibu dan Anak</option>
-                        <option value="Gigi">Gigi</option>
-                        <option value="Mata">Mata</option>
-                        <option value="Syaraf">Syaraf</option>
-                        <option value="Kulit dan Kelamin">Kulit dan Kelamain</option>
-                        <option value="Orthopedic">Orthopedic</option>                                
-                        <option value="Ginjal">Ginjal</option>
-                        <option value="Jantung">Jantung</option>
-                        <option value="Bedah">Bedah</option>
-                        <option value="Rawat Jalan">Rawat Jalan</option>
-                        <option value="Rawat Inap">Rawat Inap</option>
-                    </select>
-                    <br><br>
-                    <button class="button" id="save" type="Submit" style="vertical-align:middle"><font face="Times New Roman" size="4" ><span>Simpan</span></font></button>
+                    <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
+                        <div class="container"><br>                        
+                            <div class ="form-group">
+                                <label for="alamat">Nama</label><br>
+                                <input type="text" placeholder="Nama" id="nama" required/>
+                            </div>
+                            <div class ="form-group">
+                                <label for="alamat">Alamat Tinggal</label><br>
+                                <input type="text" placeholder="--Alamat--" id="alamat" required/>
+                            </div><!--<br>-->
+                            <div class="form-group">
+                                <label for="tanggalBerobat">Tanggal Berobat</label><br>
+                                <input type="date" placeholder="Enter Tanggal Berobat" id="tanggalBerobat" required/>
+                            </div><br>
+                            <div class ="form-group">
+                                <label for="alamat">Kelamin</label><br>
+                                <input type="text" placeholder="--Alamat--" id="kelamin" required/>
+                            </div>
+                            <div>
+                                <select name="kelamin">
+                                    <option value="Laki-Laki">Laki-Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div><br> 
+                            <div class="clearfix">
+                                <button id="save" type="button">Daftar</button>
+                            </div><br><br>
+                        </div>
                 </div>
-            </div>
-        </div>
-        <p id="output"></p>
-        <script>s
-            function loadDoc() {
-                var url = "http://202.94.83.190:8080/rsku/webresources/pasien/cariPasien?nik=" + nik.value;
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("GET", url, true);
-                xhttp.send();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("output").innerHTML = this.responseText;
-                        var myObj = JSON.parse(this.responseText);
-                        document.getElementById("nama").value = myObj.nama;
-                        document.getElementById("alamat").value = myObj.alamat;
+                <p id="output"></p>
+                <script>s
+                    function loadDoc() {
+                        var url = "http://202.94.83.190:8080/165314026_RumahSakitService/pasien/addPasien";
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.open("GET", url, true);
+                        xhttp.send();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.getElementById("output").innerHTML = this.responseText;
+                                var myObj = JSON.parse(this.responseText);
+                                document.getElementById("nama").value = myObj.nama;
+                                document.getElementById("alamat").value = myObj.alamat;
+                            }
+                        }
                     }
-                }
-            }
-        </script>
+                </script>
 
-        <footer class="footer">
-            <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
-        </footer>
-    </body>
-</html>
+                <footer class="footer">
+                    <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
+                </footer>
+                </body>
+                </html>
