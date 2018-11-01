@@ -80,16 +80,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                 
+                        <span class="icon-bar"></span>          
+                        <span class="icon-bar"></span>        
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="tambahPasien.html">Tambah Pasien</a></li>
-                        <li><a href="antriKlinik.html">Antri Klinik</a></li>
+                        <li><a href="antriKlinik.html">Antrian</a></li>
                         <li><a href="daftarDokter.html">Daftar Dokter</a></li>
                         <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
+                        <li><a href="location.html">Lokasi</a></li>
                         <li><a href="login.html">Login</a></li>
                     </ul>
                 </div>
@@ -104,34 +106,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h1><font face="Times New Roman" color=white size="6">Form Pendaftaran Pasien Konsultasi dan Berobat</font></h1>
-                    <br>
-                    <input type="text" placeholder="NIK" id="nik" required>
-                    <button type="button" onclick="loadDoc()" id="btn"><font face="Century Gothic" size="3">OK</font></button>
-
+                    <h1><font face="Times New Roman" color=white size="5">Form Pendaftaran Pasien Konsultasi dan Berobat</font></h1>
+                    
                     <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
                         <div class="container"><br>                        
                             <div class ="form-group">
-                                <label for="alamat">Nama</label><br>
-                                <input type="text" placeholder="Nama" id="nama" required/>
+                                <h2><font face="Times New Roman" color=white size="4">Nama</font></h2>
+                                <input type="text" placeholder="Nama" id="nama" required disable/>
                             </div>
                             <div class ="form-group">
-                                <label for="alamat">Alamat Tinggal</label><br>
-                                <input type="text" placeholder="--Alamat--" id="alamat" required/>
-                            </div><!--<br>-->
+                                <h2><font face="Times New Roman" color=white size="4">Alamat</font></h2>
+                                <input type="text" placeholder="Alamat" id="alamat" required disable/>
+                            </div>
                             <div class="form-group">
-                                <label for="tanggalBerobat">Tanggal Berobat</label><br>
+                                <h2><font face="Times New Roman" color=white size="4">Tanggal Berobat</font></h2>
                                 <input type="date" placeholder="Enter Tanggal Berobat" id="tanggalBerobat" required/>
-                            </div><br>
-                            <div class ="form-group">
-                                <label for="alamat">Kelamin</label><br>
-                                <input type="text" placeholder="--Alamat--" id="kelamin" required/>
                             </div>
-                            <div>
-                                <select name="kelamin">
-                                    <option value="Laki-Laki">Laki-Laki</option>
-                                    <option value="Perempuan">Perempuan</option>
-                                </select>
+                            <div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">Jenis Kelamin</font></h2>
+                            <input type="text" placeholder="Jenis Kelamin" id="kelamin" required disabled/>
                             </div><br> 
                             <div class="clearfix">
                                 <button id="save" type="button">Daftar</button>

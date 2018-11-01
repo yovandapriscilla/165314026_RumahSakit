@@ -80,16 +80,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                 
+                        <span class="icon-bar"></span>   
+                        <span class="icon-bar"></span>               
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="tambahPasien.html">Tambah Pasien</a></li>
-                        <li><a href="antriKlinik.html">Antri Klinik</a></li>
+                        <li><a href="antriKlinik.html">Antrian</a></li>
                         <li><a href="daftarDokter.html">Daftar Dokter</a></li>
                         <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
+                        <li><a href="location.html">Lokasi</a></li>
                         <li><a href="login.html">Login</a></li>
                     </ul>
                 </div>
@@ -108,28 +110,28 @@
                     <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
                         <div class="container">
                             <br><div class ="form-group">
-                                <label for="nik">NIK</label><br>
+                                <h2><font face="Times New Roman" color=white size="4">NIK</font></h2>
                                 <input type="text" placeholder="Enter NIK" id="nik" required/>
-                            </div><br>
+                            </div>
                             <div class ="form-group">
-                                <label for="nama">Nama</label><br>
+                                <h2><font face="Times New Roman" color=white size="4">Nama</font></h2>
                                 <input type="text" placeholder="Enter Nama" id="nama" required/>
-                            </div><br>
+                            </div>
                             <div class ="form-group">
-                                <label>Jenis Kelamin</label>
+                                <h2><font face="Times New Roman" color=white size="4">Jenis Kelamin</font></h2>
                                 <select name="kelamin">
                                     <option value="Laki-Laki">Laki-Laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
-                            </div><br>                 
+                            </div>          
                             <div class ="form-group">
-                                <label for="tanggalLahir">Tanggal Lahir</label><br>
+                                <h2><font face="Times New Roman" color=white size="4">Tanggal Lahir</font></h2>
                                 <input type="date" placeholder="Enter Tanggal Lahir" id="tanggalLahir" required/>
                             </div>
                             <div class ="form-group">
-                                <label for="alamat">Alamat Tempat Tinggal</label><br>
+                                <h2><font face="Times New Roman" color=white size="4">Alamat</font></h2>
                                 <input type="text" placeholder="Enter Alamat" id="alamat" required/>
-                            </div><br>
+                            </div>
 
                             <div class="clearfix">
                                 <button id="save" type="submit" class="signup">Daftar</button>

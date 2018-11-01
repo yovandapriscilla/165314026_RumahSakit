@@ -47,17 +47,19 @@
                 font-size: 15px;
             }
 
-            @media (max-width: 600px) {
+            @media (max-width: 500px) {
                 nav, article {
                     width: 100%;
                     height: auto;
                 }
             }
+            
             #map {
-                height: 500px;
+                height: 100%;
+                width: 100%
             }
             html, body {
-                height: 300px;
+                height: 100%;
                 margin: 0;
                 padding: 0;
             }
@@ -74,16 +76,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                 
+                        <span class="icon-bar"></span>    
+                        <span class="icon-bar"></span>              
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="tambahPasien.html">Tambah Pasien</a></li>
-                        <li><a href="antriKlinik.html">Antri Klinik</a></li>
+                        <li><a href="antriKlinik.html">Antrian</a></li>
                         <li><a href="daftarDokter.html">Daftar Dokter</a></li>
                         <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
+                        <li><a href="location.html">Lokasi</a></li>
                         <li><a href="login.html">Login</a></li>
                     </ul>
                 </div>
@@ -99,7 +103,6 @@
 
         <script>
             var map;
-            function loadDoc() {
                 var url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/location";
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
@@ -119,8 +122,8 @@
                 };
                 xhttp.open("GET", url, true);
                 xhttp.send();
-            }
         </script>
+        
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnD2l64I6G6fUkPpc3D79Jcau30v8xEKE&callback=initMap"
         async defer></script>    
 
