@@ -1,16 +1,147 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="en">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rumah Sakit Kita</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+
+            /*untuk mengatur menu yang diatas*/ 
+            .navbar {
+                background-image: url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif);
+                margin-bottom: 0;
+                border-radius: 0;
+                text-align: right;
+            }
+
+            /*setting footer bagian bawah laman*/
+            footer {
+                position: fixed;
+                background-image: url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif);
+                background-color: black;
+                color: white;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+            }
+
+            /*yang ditengah*/
+            .jumbotron {
+                background-image: url(https://1.bp.blogspot.com/-7VxyjAGIVAk/UMbg9yfQiSI/AAAAAAAAAZY/v0gzT71BVOQ/s1600/cardiology-rhythm-ppt-background.jpg);
+                background-color: whitesmoke;
+                margin-bottom: 0;
+                min-height: 50%;
+                padding : 20px;
+                background-repeat: no-repeat;
+                background-position: center;
+                -webkit-background-size: cover;
+                background-size: cover;
+            }
+
+            a {
+                font-family: 'Times New Roman', sans-serif;
+                font-size: 15px;
+            }
+            
+            table, th , td  {
+                font-family: 'Times New Roman', sans-serif;
+                color: white;
+                border: 1px white;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+
+            table tr:nth-child(odd) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
+            }
+
+            table tr:nth-child(even) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
+            }
+
+            @media (max-width: 600px) {
+                nav, article {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+        </style>
     </head>
-    <body>
-        <div>TODO write content</div>
+
+    <body style="background-image : url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif)">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                 
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="tambahPasien.html">Tambah Pasien</a></li>
+                        <li><a href="antriKlinik.html">Antri Klinik</a></li>
+                        <li><a href="daftarDokter.html">Daftar Dokter</a></li>
+                        <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="jumbotron text-center">
+            <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
+                <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
+        </div>
+        
+        <h1><font face="Times New Roman" color=white size="6">Daftar Dokter yang Tersedia</font></h1>
+        <div id="id01" style="margin-left: 5%"></div>
+        <button type="button" face="Times New Roman" color="white" size="3" onclick="loadDoc()" id="btn">Klik Disini</button>
+
+        <script>
+            function loadDoc() {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/dokter";
+
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table align='center' style='width:50%;' border='2'><tr><td>ID Klinik</td><td>Nama Klinik</td>\n\
+            <td>Spesialisasi Klinik</td></tr>";
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].idKlinik +
+                                "</td><td>" +
+                                arr[i].nama +
+                                "</td><td>" +
+                                arr[i].spesialis +
+                                "</td><td>"
+                    }
+                    out += "</table>";
+                    document.getElementById("id01").innerHTML = out;
+                }
+            }
+        </script>
+
+        <footer class="footer">
+            <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
+        </footer>
     </body>
 </html>
+

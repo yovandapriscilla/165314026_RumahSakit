@@ -28,7 +28,7 @@
                 padding: 15px;
                 text-align: center;
             }
-            
+
             /*setting tombol button*/
             .button {
                 display: inline-block;
@@ -56,12 +56,12 @@
                 -webkit-background-size: cover;
                 background-size: cover;
             }
-            
+
             a {
                 font-family: 'Times New Roman', sans-serif;
                 font-size: 15px;
             }
-            
+
             @media (max-width: 600px) {
                 nav, article {
                     width: 100%;
@@ -70,7 +70,7 @@
             }
         </style>   
     </head>
-    
+
     <body style="background-image : url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif)">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -80,20 +80,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>  
-                        <span class="icon-bar"></span>                     
+                        <span class="icon-bar"></span>                 
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="tambahKlinik.html">Tambah Klinik</a></li>
                         <li><a href="tambahPasien.html">Tambah Pasien</a></li>
-                        <li><a href="cariPasien.html">Cari Pasien</a></li>
                         <li><a href="antriKlinik.html">Antri Klinik</a></li>
+                        <li><a href="daftarDokter.html">Daftar Dokter</a></li>
                         <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
-                        <li><a href="location.html">Lokasi Rumah Sakit</a></li>
                         <li><a href="login.html">Login</a></li>
                     </ul>
                 </div>
@@ -104,33 +100,48 @@
             <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
                 <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h1><font face="Times New Roman" color=white size="6">Form Daftar Pasien</font></h1>
-                    <form action="" id="registerForm" onsubmit="return make_json(this)" method="POST">
-                        <br>
-                        <input type="text" placeholder="No RM" id="noRm" required>   
-                        <input type="text" placeholder="Nama" id="nama" required>
-                        <br><br>
-                        <input type="text" placeholder="Alamat" id="alamat" required>
-                        <input type="text" placeholder="NIK" id="nik" required>
-                        <br><br>
-                        <font face="Times New Roman" color=white size="3">Tanggal Lahir : </font><br>
-                        <input type="date" id="tanggalLahir" required>
-                        <br><br>
-                        <input type="radio" name="kelamin" value="Laki-laki"><font face="Times New Roman" color=white size="3"> Laki-laki&nbsp;&nbsp;&nbsp;</font>
-                        <input type="radio" name="kelamin" value="Perempuan"><font face="Times New Roman" color=white size="3"> Perempuan</font>
-                        <br><br>
-                        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
-                        <button class="button" id="save" type="Submit" style="vertical-align:middle"><font face="Times New Roman" size="4" ><span>Simpan</span></font></button>
+                    <h1><font face="Times New Roman" color=white size="6">Form Daftar Diri Pasien</font></h1>
+                    <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
+                        <div class="container">
+                            <br><div class ="form-group">
+                                <label for="nik">NIK</label><br>
+                                <input type="text" placeholder="Enter NIK" id="nik" required/>
+                            </div><br>
+                            <div class ="form-group">
+                                <label for="nama">Nama</label><br>
+                                <input type="text" placeholder="Enter Nama" id="nama" required/>
+                            </div><br>
+                            <div class ="form-group">
+                                <label>Jenis Kelamin</label>
+                                <select name="kelamin">
+                                    <option value="Laki-Laki">Laki-Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div><br>                 
+                            <div class ="form-group">
+                                <label for="tanggalLahir">Tanggal Lahir</label><br>
+                                <input type="date" placeholder="Enter Tanggal Lahir" id="tanggalLahir" required/>
+                            </div>
+                            <div class ="form-group">
+                                <label for="alamat">Alamat Tempat Tinggal</label><br>
+                                <input type="text" placeholder="Enter Alamat" id="alamat" required/>
+                            </div><br>
+
+                            <div class="clearfix">
+                                <button id="save" type="submit" class="signup">Daftar</button>
+                            </div><br><br>
+                        </div>
+                        <p id="output"></p>
                     </form>
                 </div>
             </div>
         </div>
         <p id="output"></p> 
-        
+
         <script>
             function make_json(form) {
                 var json = {
@@ -142,7 +153,7 @@
                     "kelamin": form.kelamin.value
                 };
                 var html = JSON.stringify(json, 0, 100);
-                var Url = "http://202.94.83.190:8080/rsku/webresources/pasien/tambahPasienBaru";
+                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/pasien/addPasien";
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', Url, false);
                 xhr.setRequestHeader("Content-type", "application/json");
@@ -152,7 +163,7 @@
                 return false;
             }
         </script>
-        
+
         <footer class="footer">
             <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
         </footer>
