@@ -107,16 +107,15 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h1><font face="Times New Roman" color=white size="5">Form Pendaftaran Pasien Konsultasi dan Berobat</font></h1>
-                    
                     <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
-                        <div class="container"><br>                        
+                        <div class="container">              
                             <div class ="form-group">
                                 <h2><font face="Times New Roman" color=white size="4">Nama</font></h2>
-                                <input type="text" placeholder="Nama" id="nama" required disable/>
+                                <input type="text" placeholder="~Nama~" id="nama" required disabled/>
                             </div>
                             <div class ="form-group">
                                 <h2><font face="Times New Roman" color=white size="4">Alamat</font></h2>
-                                <input type="text" placeholder="Alamat" id="alamat" required disable/>
+                                <input type="text" placeholder="~Alamat~" id="alamat" required disabled/>
                             </div>
                             <div class="form-group">
                                 <h2><font face="Times New Roman" color=white size="4">Tanggal Berobat</font></h2>
@@ -124,15 +123,16 @@
                             </div>
                             <div class ="form-group">
                                 <h2><font face="Times New Roman" color=white size="4">Jenis Kelamin</font></h2>
-                            <input type="text" placeholder="Jenis Kelamin" id="kelamin" required disabled/>
-                            </div><br> 
+                                <input type="text" placeholder="~Jenis Kelamin~" id="kelamin" required disabled/>
+                            </div>
                             <div class="clearfix">
                                 <button id="save" type="button">Daftar</button>
                             </div><br><br>
                         </div>
                 </div>
                 <p id="output"></p>
-                <script>s
+
+                <script>
                     function loadDoc() {
                         var url = "http://202.94.83.190:8080/165314026_RumahSakitService/pasien/addPasien";
                         var xhttp = new XMLHttpRequest();
