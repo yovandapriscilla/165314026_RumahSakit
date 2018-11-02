@@ -97,48 +97,117 @@
                 </div>
             </div>
         </nav>
-    
-    <div class="jumbotron text-center">
+
+        <div class="jumbotron text-center">
             <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
                 <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
-        
-        <div class="container">
+
+        <!--        <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                                <br>
+                                <input type="text" placeholder="Nama" id="nama" required>
+                                <br><br>
+                                <input type="text" placeholder="Password" id="password" required>
+                                <br><br>
+                                <button class="button" id="save" type="Submit" style="vertical-align:middle">
+                                    <font face="Times New Roman" size="4" ><span>Login</span></font></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>-->
+        <!--<p id="output"></p>-->
+
+<!--        <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                        <br>
-                        <input type="text" placeholder="Nama" id="nama" required>
-                        <br><br>
-                        <input type="text" placeholder="Password" id="password" required>
-                        <br><br>
-                        <button class="button" id="save" type="Submit" style="vertical-align:middle">
-                            <font face="Times New Roman" size="4" ><span>Login</span></font></button>
-                    </form>
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Please Sign In</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                        </label>
+                                    </div>
+                                     Change this to a button or input when using this as a form 
+                                    <button id="login" onclick="login(this.form)" class="btn btn-lg btn-success btn-block">Login</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>-->
+
+        <!--        <script>
+                    function make_json(form) {
+                        var json = {
+                            "nama": form.nama.value,
+                            "password": form.password.value
+                        };
+                        var html = JSON.stringify(json, 0, 100);
+                        var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/login";
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('POST', Url, false);
+                        xhr.setRequestHeader("Content-type", "application/json");
+                        xhr.send(html);
+                        alert(html);
+                        document.getElementById("output").innerHTML = html;
+                        return false;
+                    }
+                </script>-->
+
+<!--        <script>
+            function login(form) {
+                var window.open("user.html", "self");
+//                if (form.email.value == "puspa@usd.ac.id" && form.password.value == "1234") {
+//                    window.open();
+                }
+            }
+        </script>
+         jQuery 
+        <script src="../vendor/jquery/jquery.min.js"></script>
+
+         Bootstrap Core JavaScript 
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+         Metis Menu Plugin JavaScript 
+        <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+         Custom Theme JavaScript 
+        <script src="../dist/js/sb-admin-2.js"></script>-->
+
+        <div>Login</div>
+        <div>
+
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" id="uname" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="password" required>
+            
+            
+            <button type="submit" onclick="login()">Login</button>
         </div>
-        <p id="output"></p>
         
         <script>
-            function make_json(form) {
-                var json = {
-                    "nama": form.nama.value,
-                    "password": form.password.value
-                };
-                var html = JSON.stringify(json, 0, 100);
-                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/login";
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', Url, false);
-                xhr.setRequestHeader("Content-type", "application/json");
-                xhr.send(html);
-                alert(html);
-                document.getElementById("output").innerHTML = html;
-                return false;
+            function login() {
+                var myWindow = window.open("index.html", "_self");//manggil halaman utama rumah sakit
             }
         </script>
 
-    <footer class="footer">
-        <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
-    </footer>
-</body>
+        <footer class="footer">
+            <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
+        </footer>
+    </body>
 </html>
