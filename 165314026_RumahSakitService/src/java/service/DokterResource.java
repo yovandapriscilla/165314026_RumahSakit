@@ -13,6 +13,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
@@ -76,6 +77,20 @@ public class DokterResource {
                         "true")
                 .header("Access-Control-Max-Age", "2")
                 .header("Access-Preflight-Maxage", "2")
+                .build();
+    }
+    
+    @POST
+    @Path("addPasien")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addNewPasien(String data){
+        Gson gson = new Gson();
+        Dokter dokter = gson.fromJson(data, Dokter.class);
+        DokterHelper helper = new DokterHelper();
+        helper.addNewDokter(dokter.getId(), dokter.getNama(), dokter.getSpesialis());
+        return Response
+                .status(200)
+                .entity(dokter)
                 .build();
     }
 }

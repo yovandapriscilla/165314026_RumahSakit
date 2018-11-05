@@ -13,6 +13,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
@@ -70,5 +71,19 @@ public class KlinikResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
+    }
+    
+    @POST
+    @Path("addPasien")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response addNewKlinik(String data){
+        Gson gson = new Gson();
+        Klinik klinik = gson.fromJson(data, Klinik.class);
+        KlinikHelper helper = new KlinikHelper();
+        helper.addNewKlinik(klinik.getIdKlinik(), klinik.getNama(), klinik.getSpesialis());
+        return Response
+                .status(200)
+                .entity(klinik)
+                .build();
     }
 }

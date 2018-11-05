@@ -18,15 +18,15 @@ import java.util.logging.Logger;
  */
 public class testAddNewPasien {
     public static void main(String[] args) throws ParseException {
-         try {
+        try {
             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-            String tglLahir="19741231";
+            String tglLahir="19981230";
             Date date = format.parse(tglLahir);
-            String noRm="654321";
-            String nama="Adi";
+            String noRm="2451";
+            String nama="Dia";
             
             PasienHelper helper = new PasienHelper();
-            String alamat ="paingan";
+            String alamat ="seoul";
             String kelamin ="lelaki";
             helper.addNewPasien(noRm,nama, alamat, noRm, date, kelamin);
         } catch (ParseException ex) {

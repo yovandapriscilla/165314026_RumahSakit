@@ -20,6 +20,12 @@ public class Dokter  implements java.io.Serializable {
        this.nama = nama;
        this.spesialis = spesialis;
     }
+
+    public Dokter(Integer id, String nama, String spesialis) {
+        this.id = id;
+        this.nama = nama;
+        this.spesialis = spesialis;
+    }
    
     public Integer getId() {
         return this.id;
