@@ -113,11 +113,15 @@
                         <div class="container">
                             <br><div class ="form-group">
                                 <h2><font face="Times New Roman" color=white size="4">ID Klinik</font></h2>
-                                <input type="text" placeholder="Enter ID Klinik" id="id" required/>
+                                <input type="text" placeholder="Enter ID Klinik" id="idKlinik" required/>
                             </div>
                             <div class ="form-group">
                                 <h2><font face="Times New Roman" color=white size="4">Nama Klinik</font></h2>
                                 <input type="text" placeholder="Enter Nama" id="nama" required/>
+                            </div>
+                            <div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">Spesialis Klinik</font></h2>
+                                <input type="text" placeholder="Enter Nama" id="spesialis" required/>
                             </div>
                             <div class="clearfix">
                                 <button id="save" type="submit" class="signup">Daftar</button>
@@ -133,15 +137,12 @@
         <script>
             function make_json(form) {
                 var json = {
-                    "noRm": form.noRm.value,
-                    "nama": form.nama.value,
-                    "alamat": form.alamat.value,
-                    "nik": form.nik.value,
-                    "tanggalLahir": form.tanggalLahir.value,
-                    "kelamin": form.kelamin.value
+                    "idKlinik": form.idKlinik.value
+                    "nama": form.nama.value
+                    "spesisalis": form.spesialis.value
                 };
                 var html = JSON.stringify(json, 0, 100);
-                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/pasien/addPasien";
+                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/klinik";
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', Url, false);
                 xhr.setRequestHeader("Content-type", "application/json");

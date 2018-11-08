@@ -17,9 +17,9 @@ import java.util.logging.Logger;
 public class testAddNewKlinik {
     public static void main(String[] args) throws ParseException {
         try {
-            String idKlinik="2711";
-            String nama="gembel";
-            String spesialis="hati";
+            String idKlinik="2509";
+            String nama="gembel Akut";
+            String spesialis="hati Akut";
             
             KlinikHelper helper = new KlinikHelper();
             helper.addNewKlinik(idKlinik, nama, spesialis);

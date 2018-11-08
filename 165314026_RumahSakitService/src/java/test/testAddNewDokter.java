@@ -17,12 +17,11 @@ import java.util.logging.Logger;
 public class testAddNewDokter {
     public static void main(String[] args) throws ParseException {
         try {
-            int id=5;
             String nama="Dia";
             String spesialis="mata";
             
             DokterHelper helper = new DokterHelper();
-            helper.addNewDokter(id, nama, spesialis);
+            helper.addNewDokter(nama, spesialis);
         } catch (Exception ex) {
             Logger.getLogger(testAddNewDokter.class.getName()).log(Level.SEVERE, null, ex);
         }

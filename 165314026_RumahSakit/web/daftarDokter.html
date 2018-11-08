@@ -83,13 +83,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>   
-                        <span class="icon-bar"></span>               
+                        <span class="icon-bar"></span>   
+                        <span class="icon-bar"></span>                
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="tambahPasien.html">Tambah Pasien</a></li>
+                        <li><a href="tambahKlinik.html">Tambah Klinik</a></li>
                         <li><a href="antriKlinik.html">Antrian</a></li>
                         <li><a href="daftarDokter.html">Daftar Dokter</a></li>
                         <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
@@ -106,7 +108,7 @@
         </div>
         
         <h1><font face="Times New Roman" color=white size="6">Daftar Dokter yang Tersedia</font></h1>
-        <div id="id01" style="margin-left: 5%"></div>
+        <div id="demo" style="margin-left: 5%"></div>
         <button type="button" face="Times New Roman" color="white" size="3" onclick="loadDoc()" id="btn">Klik Disini</button>
 
         <script>
@@ -124,11 +126,11 @@
                 function myFunction(response) {
                     var arr = JSON.parse(response);
                     var i;
-                    var out = "<table align='center' style='width:50%;' border='2'><tr><td>ID Klinik</td><td>Nama Klinik</td>\n\
-            <td>Spesialisasi Klinik</td></tr>";
+                    var out = "<table align='center' style='width:50%;' border='2'><tr><td>ID</td><td>Nama Dokter</td>\n\
+            <td>Spesialis</td></tr>";
                     for (i = 0; i < arr.length; i++) {
                         out += "<tr><td>" +
-                                arr[i].idKlinik +
+                                arr[i].id +
                                 "</td><td>" +
                                 arr[i].nama +
                                 "</td><td>" +
@@ -136,7 +138,7 @@
                                 "</td><td>"
                     }
                     out += "</table>";
-                    document.getElementById("id01").innerHTML = out;
+                    document.getElementById("demo").innerHTML = out;
                 }
             }
         </script>

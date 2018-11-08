@@ -32,12 +32,11 @@ public class DokterHelper {
     }
     
     public void addNewDokter(
-            int id,
             String nama,
             String spesialis) {
         Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Dokter dokter = new Dokter(id, nama, spesialis);
+        Dokter dokter = new Dokter(nama, spesialis);
         session.saveOrUpdate(dokter);
         transaction.commit();
         session.close();

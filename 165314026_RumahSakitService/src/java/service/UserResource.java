@@ -62,9 +62,9 @@ public class UserResource {
 //    }
 
     @GET
-//    @Path("login")
+    @Path("loginUser")
     @Produces(MediaType.APPLICATION_JSON)//Produces disini berarti menghasilkan informasi yang ada di return nya
-    public Response getlogin(
+    public Response getloginUser(
             @QueryParam("username") String username,
             @QueryParam("password") String password) {
         UserHelper helper = new UserHelper();
@@ -85,7 +85,36 @@ public class UserResource {
 //                        "true")
 //                .header("Access-Preflight-Maxage", "2000")
 //                .build();
+        return Response
+                .status(200)
+                .entity(gson.toJson(user))
+                .build();
+    }
+    
+    @GET
+    @Path("loginAdmin")
+    @Produces(MediaType.APPLICATION_JSON)//Produces disini berarti menghasilkan informasi yang ada di return nya
+    public Response getloginAdmin(
+            @QueryParam("username") String username,
+            @QueryParam("password") String password) {
+        UserHelper helper = new UserHelper();
+        User user = helper.getUser(username, password);
+//        boolean hasil = helper.login(username, password);
+        Gson gson = new Gson();
 
+//        return Response.status(200)
+//                .entity(gson.toJson(hasil))
+//                .header("Access-Control-Allow-Origin", "*")
+//                .header("Access-Control-Allow-Methods",
+//                        "GET,POST,HEAD,OPTIONS,PUT")
+//                .header("Access-Control-Allow-Headers",
+//                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers")
+//                .header("Access-Exposed-Headers",
+//                        "Access-Control-Allow-Origin,Access-Control-Allow-Credentials")
+//                .header("Access-Support-Credentials",
+//                        "true")
+//                .header("Access-Preflight-Maxage", "2000")
+//                .build();
         return Response
                 .status(200)
                 .entity(gson.toJson(user))
