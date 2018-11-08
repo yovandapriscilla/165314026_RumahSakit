@@ -74,7 +74,7 @@ public class KlinikResource {
     }
     
     @POST
-    @Path("addPasien")
+    @Path("addKlinik")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addNewKlinik(String data){
         Gson gson = new Gson();

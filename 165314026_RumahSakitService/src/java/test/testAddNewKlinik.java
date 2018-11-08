@@ -16,15 +16,15 @@ import java.util.logging.Logger;
  */
 public class testAddNewKlinik {
     public static void main(String[] args) throws ParseException {
-//        try {
-//            String idKlinik="d654321";
-//            String nama="Dia";
-//            
-//            KlinikHelper helper = new KlinikHelper();
-//            String spesialis="Mata";
-//            helper.addNewKlinik(idKlinik,nama, spesialis);
-//        } catch (ParseException ex) {
-//            Logger.getLogger(testAddNewKlinik.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            String idKlinik="2711";
+            String nama="gembel";
+            String spesialis="hati";
+            
+            KlinikHelper helper = new KlinikHelper();
+            helper.addNewKlinik(idKlinik, nama, spesialis);
+        } catch (Exception ex) {
+            Logger.getLogger(testAddNewDokter.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
