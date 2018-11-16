@@ -16,26 +16,26 @@ import pojos.User;
  */
 public class testUser4 {
     public static void main(String[] args) {
-        UserHelper test = new UserHelper();
-        User user = test.getUser("puspa@usd.ac.id", "1234");
-        if (user != null) {
-            Gson gson = new Gson();
-            String json = gson.toJson(user);
-            System.out.println(json);
-        }
-        
-        User user1 = test.getUser("puspa@usd.ac.id", "123456789");
-        if (user1 != null) {
-            Gson gson = new Gson();
-            String json = gson.toJson(user1);
-            System.out.println(json);
-        }
-        
-        User user2 = test.getUser("puspaningtyas@usd.ac.id", "1234567890");
-        if (user2 != null) {
-            Gson gson = new Gson();
-            String json = gson.toJson(user2);
-            System.out.println(json);
-        }
+//        UserHelper test = new UserHelper();
+//        User user = test.getUser("puspa@usd.ac.id", "1234");
+//        if (user != null) {
+//            Gson gson = new Gson();
+//            String json = gson.toJson(user);
+//            System.out.println(json);
+//        }
+//        
+//        User user1 = test.getUser("puspa@usd.ac.id", "123456789");
+//        if (user1 != null) {
+//            Gson gson = new Gson();
+//            String json = gson.toJson(user1);
+//            System.out.println(json);
+//        }
+//        
+//        User user2 = test.getUser("puspaningtyas@usd.ac.id", "1234567890");
+//        if (user2 != null) {
+//            Gson gson = new Gson();
+//            String json = gson.toJson(user2);
+//            System.out.println(json);
+//        }
     }
 }

@@ -16,10 +16,10 @@ import pojos.User;
  */
 public class testUser3 {
     public static void main(String[] args) {
-        UserHelper test = new UserHelper();
-        List<User> list = test.getAllUser();
-        Gson gson = new Gson();
-        String json = gson.toJson(list);
-        System.out.println(json);
+//        UserHelper test = new UserHelper();
+//        List<User> list = test.getAllUser();
+//        Gson gson = new Gson();
+//        String json = gson.toJson(list);
+//        System.out.println(json);
     }
 }

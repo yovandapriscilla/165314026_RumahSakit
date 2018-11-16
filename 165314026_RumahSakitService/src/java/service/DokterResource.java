@@ -52,10 +52,10 @@ public class DokterResource {
      * PUT method for updating or creating an instance of DokterResource
      * @param content representation for the resource
      */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
-    }
+//    @PUT
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public void putJson(String content) {
+//    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)

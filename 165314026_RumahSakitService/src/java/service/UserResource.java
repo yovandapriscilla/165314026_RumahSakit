@@ -47,30 +47,31 @@ public class UserResource {
 //        //TODO return proper representation object
 //        throw new UnsupportedOperationException();
 //    }
-
     /**
      * PUT method for updating or creating an instance of UserResource
      *
      * @param username
      * @param password
      * @param content representation for the resource
-     * @return 
+     * @return
      */
 //    @PUT
 //    @Consumes(MediaType.APPLICATION_JSON)//Consumes disini berarti memakai/menggunakan informasi yang ada di paramater nya
 //    public void putJson(String content) {
 //    }
-
     @GET
-    @Path("loginUser")
     @Produces(MediaType.APPLICATION_JSON)//Produces disini berarti menghasilkan informasi yang ada di return nya
-    public Response getloginUser(
-            @QueryParam("username") String username,
+    public String getlogin(
+            @QueryParam("email") String email,
             @QueryParam("password") String password) {
-        UserHelper helper = new UserHelper();
-        User user = helper.getUser(username, password);
+        return new Gson().toJson(new UserHelper().login(email, password));
+    }
+//            @QueryParam("username") String username,
+//            @QueryParam("password") String password) {
+//        UserHelper helper = new UserHelper();
+//        User user = helper.getUser(username, password);
 //        boolean hasil = helper.login(username, password);
-        Gson gson = new Gson();
+//        Gson gson = new Gson();
 
 //        return Response.status(200)
 //                .entity(gson.toJson(hasil))
@@ -85,23 +86,20 @@ public class UserResource {
 //                        "true")
 //                .header("Access-Preflight-Maxage", "2000")
 //                .build();
-        return Response
-                .status(200)
-                .entity(gson.toJson(user))
-                .build();
-    }
-    
-    @GET
-    @Path("loginAdmin")
-    @Produces(MediaType.APPLICATION_JSON)//Produces disini berarti menghasilkan informasi yang ada di return nya
-    public Response getloginAdmin(
-            @QueryParam("username") String username,
-            @QueryParam("password") String password) {
-        UserHelper helper = new UserHelper();
-        User user = helper.getUser(username, password);
+//        return Response
+//                .status(200)
+//                .entity(gson.toJson(user))
+//                .build();
+//    @GET
+//    @Path("loginAdmin")
+//    @Produces(MediaType.APPLICATION_JSON)//Produces disini berarti menghasilkan informasi yang ada di return nya
+//    public Response getloginAdmin(
+//            @QueryParam("username") String username,
+//            @QueryParam("password") String password) {
+//        UserHelper helper = new UserHelper();
+//        User user = helper.getUser(username, password);
 //        boolean hasil = helper.login(username, password);
-        Gson gson = new Gson();
-
+//        Gson gson = new Gson();
 //        return Response.status(200)
 //                .entity(gson.toJson(hasil))
 //                .header("Access-Control-Allow-Origin", "*")
@@ -115,9 +113,9 @@ public class UserResource {
 //                        "true")
 //                .header("Access-Preflight-Maxage", "2000")
 //                .build();
-        return Response
-                .status(200)
-                .entity(gson.toJson(user))
-                .build();
-    }
+//        return Response
+//                .status(200)
+//                .entity(gson.toJson(user))
+//                .build();
+//    }
 }
