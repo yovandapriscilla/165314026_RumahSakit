@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package helper;
 
 import java.util.List;
@@ -12,10 +7,6 @@ import org.hibernate.Transaction;
 import pojos.Location;
 import util.RumahSakitHibernateUtil;
 
-/**
- *
- * @author ASUS
- */
 public class LocationHelper {
     public LocationHelper() {
     }
@@ -42,5 +33,17 @@ public class LocationHelper {
         } else {
             return null;
         }
+    }
+    
+    public void addNewLocation(
+            double lat,
+            double lng,
+            String name ) {
+        Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Location klinik = new Location(lat, lng, name);
+        session.saveOrUpdate(klinik);
+        transaction.commit();
+        session.close();
     }
 }

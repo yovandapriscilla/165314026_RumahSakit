@@ -102,20 +102,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h1><font face="Times New Roman" color=white size="6">Form Daftar Klinik</font></h1>
+                    <h1><font face="Times New Roman" color=white size="6">Form Daftar Dokter</font></h1>
                     <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
                         <div class="container">
                             <br><div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">ID Klinik</font></h2>
-                                <input type="text" placeholder="Enter ID Klinik" id="idKlinik" required/>
-                            </div>
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Nama Klinik</font></h2>
+                                <h2><font face="Times New Roman" color=white size="4">Nama Dokter</font></h2>
                                 <input type="text" placeholder="Enter Nama" id="nama" required/>
                             </div>
                             <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Spesialis Klinik</font></h2>
-                                <input type="text" placeholder="Enter Nama" id="spesialis" required/>
+                                <h2><font face="Times New Roman" color=white size="4">Spesialis</font></h2>
+                                <input type="text" placeholder="Enter Spesialis" id="spesialis" required/>
                             </div>
                             <div class="clearfix">
                                 <button id="save" type="submit" class="signup">Daftar</button>
@@ -131,12 +127,11 @@
         <script>
             function make_json(form) {
                 var json = {
-                    "idKlinik": form.idKlinik.value
                     "nama": form.nama.value
                     "spesisalis": form.spesialis.value
                 };
                 var html = JSON.stringify(json, 0, 100);
-                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/klinik/addKlinik";
+                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/dokter/addDokter";
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', Url, false);
                 xhr.setRequestHeader("Content-type", "application/json");

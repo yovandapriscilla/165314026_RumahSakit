@@ -29,28 +29,13 @@
                 text-align: center;
             }
 
-            /*setting tombol button*/
-            .button {
-                display: inline-block;
-                border-radius: 6px;
-                background-color: #1EE849;
-                border: none;
-                color: white;
-                text-align: center;
-                font-size: 28px;
-                padding: 8px;
-                width: 146px;
-                transition: all 0.5s;
-                cursor: pointer;
-            }
-
             /*yang ditengah*/
             .jumbotron {
                 background-image: url(https://1.bp.blogspot.com/-7VxyjAGIVAk/UMbg9yfQiSI/AAAAAAAAAZY/v0gzT71BVOQ/s1600/cardiology-rhythm-ppt-background.jpg);
                 background-color: whitesmoke;
                 margin-bottom: 0;
                 min-height: 50%;
-                padding : 20px;
+                padding : 150px;
                 background-repeat: no-repeat;
                 background-position: center;
                 -webkit-background-size: cover;
@@ -68,7 +53,8 @@
                     height: auto;
                 }
             }
-        </style>   
+
+        </style>
     </head>
 
     <body style="background-image : url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif)">
@@ -95,60 +81,17 @@
         </nav>
 
         <div class="jumbotron text-center">
-            <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
-                <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
+            <a href="indexAll.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
+                <font color="blue"><h2>We Are One</h2></font><font color="black"><p>Selamat Datang di Rumah Sakit Kita. 
+                    We Are One merupakan slogan kami berarti kita adalah satu, apapun suku, ras, agama, warna kulit
+                    dan hal lainnya kita tetap satu. Maka dari itu Rumah Sakit kami melayani untuk semua orang yang membutuhkan pengobatan.
+                    Rumah Sakit kami menyediakan fasilitas yang lengkap dan pelayanan yang baik.</p>
+                </font><font color="white"><b></b></font></a>
         </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h1><font face="Times New Roman" color=white size="6">Form Daftar Klinik</font></h1>
-                    <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
-                        <div class="container">
-                            <br><div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">ID Klinik</font></h2>
-                                <input type="text" placeholder="Enter ID Klinik" id="idKlinik" required/>
-                            </div>
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Nama Klinik</font></h2>
-                                <input type="text" placeholder="Enter Nama" id="nama" required/>
-                            </div>
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Spesialis Klinik</font></h2>
-                                <input type="text" placeholder="Enter Nama" id="spesialis" required/>
-                            </div>
-                            <div class="clearfix">
-                                <button id="save" type="submit" class="signup">Daftar</button>
-                            </div><br><br>
-                        </div>
-                        <p id="output"></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <p id="output"></p> 
-
-        <script>
-            function make_json(form) {
-                var json = {
-                    "idKlinik": form.idKlinik.value
-                    "nama": form.nama.value
-                    "spesisalis": form.spesialis.value
-                };
-                var html = JSON.stringify(json, 0, 100);
-                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/klinik/addKlinik";
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', Url, false);
-                xhr.setRequestHeader("Content-type", "application/json");
-                xhr.send(html);
-                alert(html);
-                document.getElementById("output").innerHTML = html;
-                return false;
-            }
-        </script>
 
         <footer class="footer">
             <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
         </footer>
+
     </body>
 </html>

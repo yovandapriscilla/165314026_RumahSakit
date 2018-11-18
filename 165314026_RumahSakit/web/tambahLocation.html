@@ -102,26 +102,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <h1><font face="Times New Roman" color=white size="6">Form Daftar Klinik</font></h1>
+                    <h1><font face="Times New Roman" color=white size="6">Form Tambah Lokasi Klinik</font></h1>
                     <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
                         <div class="container">
                             <br><div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">ID Klinik</font></h2>
-                                <input type="text" placeholder="Enter ID Klinik" id="idKlinik" required/>
+                                <h2><font face="Times New Roman" color=white size="4">Nama Lokasi Klinik</font></h2>
+                                <input type="text" placeholder="Enter ID Klinik" id="name" required/>
                             </div>
                             <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Nama Klinik</font></h2>
-                                <input type="text" placeholder="Enter Nama" id="nama" required/>
+                                <h2><font face="Times New Roman" color=white size="4">Longitude</font></h2>
+                                <input type="text" placeholder="Enter Nama" id="lng" required/>
                             </div>
                             <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Spesialis Klinik</font></h2>
-                                <input type="text" placeholder="Enter Nama" id="spesialis" required/>
+                                <h2><font face="Times New Roman" color=white size="4">Latitude</font></h2>
+                                <input type="text" placeholder="Enter Nama" id="lat" required/>
                             </div>
                             <div class="clearfix">
-                                <button id="save" type="submit" class="signup">Daftar</button>
+                                <button id="save" type="submit" class="signup">Simpan</button>
                             </div><br><br>
                         </div>
-                        <p id="output"></p>
                     </form>
                 </div>
             </div>
@@ -131,12 +130,12 @@
         <script>
             function make_json(form) {
                 var json = {
-                    "idKlinik": form.idKlinik.value
-                    "nama": form.nama.value
-                    "spesisalis": form.spesialis.value
+                    "name": form.name.value
+                    "lng": form.lng.value
+                    "lat": form.lat.value
                 };
                 var html = JSON.stringify(json, 0, 100);
-                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/klinik/addKlinik";
+                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/location/addLocation";
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', Url, false);
                 xhr.setRequestHeader("Content-type", "application/json");
