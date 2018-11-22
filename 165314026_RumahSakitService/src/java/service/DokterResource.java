@@ -39,6 +39,7 @@ public class DokterResource {
 
     /**
      * Retrieves representation of an instance of service.DokterResource
+     *
      * @return an instance of java.lang.String
      */
 //    @GET
@@ -47,23 +48,22 @@ public class DokterResource {
 //        //TODO return proper representation object
 //        throw new UnsupportedOperationException();
 //    }
-
     /**
      * PUT method for updating or creating an instance of DokterResource
+     *
      * @param content representation for the resource
      */
 //    @PUT
 //    @Consumes(MediaType.APPLICATION_JSON)
 //    public void putJson(String content) {
 //    }
-    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getJson() {
         DokterHelper helper = new DokterHelper();
         List<Dokter> list = helper.getAllDokter();
         Gson gson = new Gson();
-        
+
         return Response.status(200)
                 .entity(gson.toJson(list))
                 .header("Access-Control-Allow-Origin", "*")
@@ -79,15 +79,17 @@ public class DokterResource {
                 .header("Access-Preflight-Maxage", "2")
                 .build();
     }
-    
+
     @POST
     @Path("addDokter")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addNewDokter(String data){
+    public Response addNewDokter(String data) {
         Gson gson = new Gson();
         Dokter dokter = gson.fromJson(data, Dokter.class);
         DokterHelper helper = new DokterHelper();
-        helper.addNewDokter(dokter.getNama(), dokter.getSpesialis());
+        helper.addNewDokter(dokter.getNama(),
+                dokter.getSpesialis());
+
         return Response
                 .status(200)
                 .entity(dokter)

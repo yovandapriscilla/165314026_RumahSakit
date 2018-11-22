@@ -20,7 +20,7 @@ public class DokterHelper {
 
     public DokterHelper() {
     }
-    
+
     public List<Dokter> getAllDokter() {
         List<Dokter> result = null;
         Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
@@ -30,10 +30,8 @@ public class DokterHelper {
         session.close();
         return result;
     }
-    
-    public void addNewDokter(
-            String nama,
-            String spesialis) {
+
+    public void addNewDokter(String nama, String spesialis) {
         Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Dokter dokter = new Dokter(nama, spesialis);
