@@ -14,8 +14,7 @@ import pojos.User;
  */
 public class testUser1 {
     public static void main(String[] args) {
-//        UserHelper helper = new UserHelper();
-//        User cari = helper.cariUser("puspa@usd.ac.id");
-//        System.out.println("Password : "+cari.getPassword());
+        UserHelper helper = new UserHelper();
+        System.out.println("Login = " + helper.login("puspa@usd.ac.id", "123456789"));
     }
 }

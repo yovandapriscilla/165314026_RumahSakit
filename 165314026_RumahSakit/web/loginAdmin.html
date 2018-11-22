@@ -92,28 +92,29 @@
         <div class="container">
             <br><div class ="form-group">
                 <h2><font face="Times New Roman" color=white size="4">Username</font></h2>
-                <input type="text" placeholder="Enter Username" id="uname" required/>
+                <input type="text" placeholder="Enter Username" id="a" required/>
             </div>
             <div class ="form-group">
                 <h2><font face="Times New Roman" color=white size="4">Password</font></h2>
-                <input type="password" placeholder="Enter Username" id="password" required/>
+                <input type="password" placeholder="Enter Username" id="b" required/>
             </div>
             <div class="clearfix">
-                <button id="save" onclick="loadLoc()" type="button" class="button">Login</button>
+                <button onclick="loadDoc()" type="button" class="button">Login</button>
             </div><br><br>
             <p id="demo"></p>
         </div>
+        
         <script>
-           function loadDoc() {
-                var email = uname.value;
-                var pw = password.value;
-                var url = 'http://202.94.83.190:8080/165314026_RumahSakitService/webresources/user/login?email=' + email + '&password=' + pw;
+            function loadDoc() {
+                var email = a.value;
+                var password = b.value;
+                var url = 'http://202.94.83.190:8080/165314034_Platform_rsku_webservice/webresources/user/login?email=' + email + '&password=' + password;
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         var user = JSON.parse(this.responseText);
                         if (user !== null) {
-                            alert("Selamat Datang " + user.email);
+                            alert("Selamat Datang" + user.email);
                             open("indexAdmin.html");
                         } else {
                             alert("Login Gagal");
@@ -126,5 +127,9 @@
                 xhttp.send();
             }
         </script>
+
+        <footer class="footer">
+            <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
+        </footer>
     </body>
 </html>
