@@ -78,23 +78,17 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>   
-                        <span class="icon-bar"></span>   
-                        <span class="icon-bar"></span>                
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span>               
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="tambahPasien.html">Tambah Pasien</a></li>
-                        <li><a href="tambahKlinik.html">Tambah Klinik</a></li>
-                        <li><a href="antriKlinik.html">Antrian</a></li>
-                        <li><a href="daftarDokter.html">Daftar Dokter</a></li>
-                        <li><a href="daftarKlinik.html">Daftar Klinik</a></li>
-                        <li><a href="location.html">Lokasi</a></li>
-                        <li><a href="login.html">Login</a></li>
+                        <li><a href="indexUser.html">Home</a></li>
+                        <li class="active"><a href="tambahPasien.html">Pendaftaran Pasien</a></li>
+                        <li><a href="tambahAntrian.html">Antri Klinik</a></li>
+                        <li><a href="daftarPasein.html">Daftar Pasien RS.Kita</a></li>
+                        <li><a href="indexAll.html">Keluar</a></li>
                     </ul>
                 </div>
             </div>
@@ -157,7 +151,7 @@
                     "kelamin": form.kelamin.value
                 };
                 var html = JSON.stringify(json, 0, 100);
-                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/pasien/addPasien";
+                var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/pasien/addPasien";
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', Url, false);
                 xhr.setRequestHeader("Content-type", "application/json");

@@ -35,7 +35,7 @@
                 background-color: whitesmoke;
                 margin-bottom: 0;
                 min-height: 50%;
-                padding : 150px;
+                padding : 20px;
                 background-repeat: no-repeat;
                 background-position: center;
                 -webkit-background-size: cover;
@@ -45,6 +45,22 @@
             a {
                 font-family: 'Times New Roman', sans-serif;
                 font-size: 15px;
+            }
+            
+            table, th , td  {
+                font-family: 'Times New Roman', sans-serif;
+                color: white;
+                border: 1px white;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+
+            table tr:nth-child(odd) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
+            }
+
+            table tr:nth-child(even) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
             }
 
             @media (max-width: 600px) {
@@ -56,8 +72,8 @@
 
         </style>
     </head>
-    
-    <body style="background-image : url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif)">
+
+   <body style="background-image : url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif)">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -70,27 +86,59 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="indexUser.html">Home</a></li>
+                        <li><a href="indexUser.html">Home</a></li>
                         <li><a href="tambahPasien.html">Pendaftaran Pasien</a></li>
                         <li><a href="tambahAntrian.html">Antri Klinik</a></li>
-                        <li><a href="daftarPasein.html">Daftar Pasien RS.Kita</a></li>
+                        <li class="active"><a href="daftarPasein.html">Daftar Pasien RS.Kita</a></li>
                         <li><a href="indexAll.html">Keluar</a></li>
                     </ul>
                 </div>
             </div>
-
+        
         <div class="jumbotron text-center">
-            <a href="indexAll.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
-                <font color="blue"><h2>We Are One</h2></font><font color="black"><p>Selamat Datang di Rumah Sakit Kita. 
-                    We Are One merupakan slogan kami berarti kita adalah satu, apapun suku, ras, agama, warna kulit
-                    dan hal lainnya kita tetap satu. Maka dari itu Rumah Sakit kami melayani untuk semua orang yang membutuhkan pengobatan.
-                    Rumah Sakit kami menyediakan fasilitas yang lengkap dan pelayanan yang baik.</p>
-                </font><font color="white"><b></b></font></a>
+            <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
+                <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
+        
+        <h1><font face="Times New Roman" color=white size="6">Daftar Pasien</font></h1>
+        <div id="demo" style="margin-left: 5%"></div>
+        <button type="button" face="Times New Roman" color="white" size="3" onclick="loadDoc()" id="btn">Klik Disini</button>
+
+        <script>
+            function loadDoc() {
+                var xmlhttp = new XMLHttpRequest();
+                var url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/pasien";
+
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myFunction(this.responseText);
+                    }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table align='center' style='width:50%;' border='2'><tr><td>ID</td><td>Nama Dokter</td>\n\
+            <td>Spesialis</td></tr>";
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].id +
+                                "</td><td>" +
+                                arr[i].nama +
+                                "</td><td>" +
+                                arr[i].spesialis +
+                                "</td><td>"
+                    }
+                    out += "</table>";
+                    document.getElementById("demo").innerHTML = out;
+                }
+            }
+        </script>
 
         <footer class="footer">
             <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
         </footer>
-
     </body>
 </html>
+

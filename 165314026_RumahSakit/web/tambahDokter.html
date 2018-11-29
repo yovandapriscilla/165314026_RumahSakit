@@ -84,18 +84,19 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="indexAll.html">Home</a></li>
-                        <li><a href="tambahDokter.html">Tambah Dokter</a></li>
+                        <li><a href="indexAdmin.html">Home</a></li>
+                        <li class="active"><a href="tambahDokter.html">Tambah Dokter</a></li>
                         <li><a href="tambahKlinik.html">Tambah Klinik</a></li>
                         <li><a href="tambahLocation.html">Tambah Lokasi Klinik</a></li>
-                        <li><a href="antriKlinik.html">Daftar Antrian</a></li>
+                        <li><a href="daftarKlinik.html">Daftar Antrian</a></li>
+                        <li><a href="indexAll.html">Keluar</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
         <div class="jumbotron text-center">
-            <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
+            <a href="indexAll.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
                 <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
 
@@ -127,7 +128,8 @@
         <script>
             function make_json(form) {
                 var json = {
-                    "nama": form.nama.value
+                    "id":form.id.value,
+                    "nama": form.nama.value,
                     "spesisalis": form.spesialis.value
                 };
                 var html = JSON.stringify(json, 0, 100);
