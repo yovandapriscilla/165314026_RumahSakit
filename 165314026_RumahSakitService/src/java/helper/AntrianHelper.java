@@ -5,9 +5,11 @@
  */
 package helper;
 
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import pojos.Antrian;
 import util.RumahSakitHibernateUtil;
 
@@ -28,5 +30,14 @@ public class AntrianHelper {
         result = q.list();
         session.close();
         return result;
+    }
+    
+    public void addNewAntrian(Date tanggal, String noRm, String nama, String alamat, String namaKlinik) {
+        Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        Antrian antrian = new Antrian(tanggal, noRm, nama, alamat, namaKlinik);
+        session.saveOrUpdate(antrian);
+        transaction.commit();
+        session.close();
     }
 }

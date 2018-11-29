@@ -6,20 +6,21 @@
 package test;
 
 import com.google.gson.Gson;
-import helper.UserHelper;
+import helper.AntrianHelper;
 import java.util.List;
-import pojos.User;
+import pojos.Antrian;
+
 
 /**
  *
  * @author ASUS
  */
-public class testUser3 {
+public class testAntrian1 {
     public static void main(String[] args) {
-//        UserHelper test = new UserHelper();
-//        List<User> list = test.getAllUser();
-//        Gson gson = new Gson();
-//        String json = gson.toJson(list);
-//        System.out.println(json);
+        AntrianHelper test = new AntrianHelper();
+        List<Antrian> list = test.getAllAntrian();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        System.out.println(json);
     }
 }

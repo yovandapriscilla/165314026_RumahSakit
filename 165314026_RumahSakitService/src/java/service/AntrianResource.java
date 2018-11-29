@@ -13,6 +13,7 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
@@ -65,10 +66,27 @@ public class AntrianResource {
 
     /**
      * PUT method for updating or creating an instance of AntrianResource
+     * @param data
      * @param content representation for the resource
      */
-    @PUT
+//    @PUT
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public void putJson(String content) {
+//    }
+    
+    @POST
+    @Path("addAntrian")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    public Response addNewAntrian(String data) {
+        Gson gson = new Gson();
+        Antrian antrian = gson.fromJson(data, Antrian.class);
+        AntrianHelper helper = new AntrianHelper();
+        helper.addNewAntrian(antrian.getTanggal(), antrian.getNoRm(),
+                antrian.getNama(), antrian.getAlamat(), antrian.getNamaKlinik());
+
+        return Response
+                .status(200)
+                .entity(antrian)
+                .build();
     }
 }
