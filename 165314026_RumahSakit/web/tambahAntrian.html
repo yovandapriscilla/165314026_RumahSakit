@@ -1,10 +1,187 @@
-<html>
+<html lang="en">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rumah Sakit Kita</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+
+            /*untuk mengatur menu yang diatas*/ 
+            .navbar {
+                background-image: url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif);
+                margin-bottom: 0;
+                border-radius: 0;
+                text-align: right;
+            }
+
+            /*setting footer bagian bawah laman*/
+            footer {
+                position: fixed;
+                background-image: url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif);
+                background-color: black;
+                color: white;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                padding: 15px;
+                text-align: center;
+            }
+
+            /*setting tombol button*/
+            .button {
+                display: inline-block;
+                border-radius: 6px;
+                background-color: #1EE849;
+                border: none;
+                color: white;
+                text-align: center;
+                font-size: 28px;
+                padding: 8px;
+                width: 146px;
+                transition: all 0.5s;
+                cursor: pointer;
+            }
+
+            /*yang ditengah*/
+            .jumbotron {
+                background-image: url(https://1.bp.blogspot.com/-7VxyjAGIVAk/UMbg9yfQiSI/AAAAAAAAAZY/v0gzT71BVOQ/s1600/cardiology-rhythm-ppt-background.jpg);
+                background-color: whitesmoke;
+                margin-bottom: 0;
+                min-height: 50%;
+                padding : 20px;
+                background-repeat: no-repeat;
+                background-position: center;
+                -webkit-background-size: cover;
+                background-size: cover;
+            }
+
+            a {
+                font-family: 'Times New Roman', sans-serif;
+                font-size: 15px;
+            }
+
+            @media (max-width: 600px) {
+                nav, article {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        </style>   
     </head>
-    <body>
-        <div>TODO write content</div>
+
+    <body style="background-image : url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif)">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span>               
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="indexUser.html">Home</a></li>
+                        <li><a href="tambahPasien.html">Pendaftaran Pasien</a></li>
+                        <li class="active"><a href="tambahAntrian.html">Antri Klinik</a></li>
+                        <li><a href="daftarPasien.html">Daftar Pasien RS.Kita</a></li>
+                        <li><a href="indexAll.html">Keluar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron text-center">
+            <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
+                <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h1><font face="Times New Roman" color=white size="6">Pencarian Data Pasien</font></h1>
+                    <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
+                        <div class="container">
+                            <br><div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">No Rekam Medis</font></h2>
+                                <input type="text" placeholder="Enter No Rekam Medis" id="noRM" required/>
+                            </div>
+                            
+                            <h1><font face="Times New Roman" color=white size="6">Hasil Pencarian Data Pasien</font></h1>
+                            <div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">Nama</font></h2>
+                                <input type="text" placeholder="Enter Nama" id="nama" required/>
+                            </div>
+                            <div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">NIK</font></h2>
+                                <input type="text" placeholder="Enter NIK" id="nik" required/>
+                            </div>
+                            <div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">Alamat</font></h2>
+                                <input type="text" placeholder="Enter Alamat" id="alamat" required/>
+                            </div>         
+                            <div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">Tanggal Berobat Rawat Jalan</font></h2>
+                                <input type="date" placeholder="Enter Tanggal Rawat" id="tanggalRawat" required/>
+                            </div>
+                            <div class ="form-group">
+                                <h2><font face="Times New Roman" color=white size="4">Nama Klinik</font></h2>
+                                <select name="namaKlinik">
+                                    <option value="mata">Mata</option>
+                                    <option value="gigi">Gigi</option>
+                                    <option value="gigi">Hati</option>
+                                </select>
+                            </div> 
+                            <div class="clearfix">
+                                <button id="save" type="submit" class="signup">Daftar</button>
+                            </div><br><br>
+                        </div>
+                        <p id="output"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function loadDoc() {
+                var url = "http://202.94.83.190:8080/165314026_RumahSalitKita/webresources/pasien/cariPaaien?noRm=" + nrm.value;
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", url, true);
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var objj = JSON.parse(this.responseText);
+                        document.getElementById("nama").value = objj.nama;
+                        document.getElementById("nik").value = objj.nik;
+                        document.getElementById("alamat").value = objj.alamat;
+                    }
+                };
+            }
+        
+            function make_json(form) {
+                var json = {
+                    "tanggalRawat": form.tanggal.value,
+                    "noRm": form.nik.value,
+                    "nama": form.nama.value,
+                    "alamat": form.alamat.value,
+                    "namaKlinik": form.namaKlinik.value
+                };
+                var html = JSON.stringify(json, 0, 100);
+                var Url = "http://202.94.83.190:8080/165314026_RumahSakitKita/webresources/antrian/addAntrian";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, false);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.send(html);
+                document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
+                return false;
+            }
+        </script>
+
+        <footer class="footer">
+            <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
+        </footer>
     </body>
 </html>

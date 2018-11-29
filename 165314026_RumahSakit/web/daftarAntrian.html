@@ -61,6 +61,22 @@
                 font-family: 'Times New Roman', sans-serif;
                 font-size: 15px;
             }
+            
+            table, th , td  {
+                font-family: 'Times New Roman', sans-serif;
+                color: white;
+                border: 1px white;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+
+            table tr:nth-child(odd) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
+            }
+
+            table tr:nth-child(even) {
+                background-image: url(http://3.bp.blogspot.com/-ad7Ibmldryw/UZxWf_fAveI/AAAAAAAAGF0/tBAubZfcda8/s320/Orion.gif);
+            }
 
             @media (max-width: 600px) {
                 nav, article {
@@ -88,7 +104,7 @@
                         <li><a href="tambahDokter.html">Tambah Dokter</a></li>
                         <li><a href="tambahKlinik.html">Tambah Klinik</a></li>
                         <li><a href="tambahLocation.html">Tambah Lokasi Klinik</a></li>
-                        <li class="active"><a href="daftarKlinik.html">Daftar Antrian</a></li>
+                        <li class="active"><a href="daftarAntrian.html">Daftar Antrian</a></li>
                         <li><a href="indexAll.html">Keluar</a></li>
                     </ul>
                 </div>
@@ -99,53 +115,45 @@
             <a href="index.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
                 <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
-        
+
         <h1><font face="Times New Roman" color=white size="6">Daftar Antrian Pasien</font></h1>
         <div id="demo" style="margin-left: 5%"></div>
         <button type="button" face="Times New Roman" color="white" size="3" onclick="loadDoc()" id="btn">Klik Disini</button>
 
-        <!--        <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h1><font face="Times New Roman" color=white size="5">Form Pendaftaran Pasien Konsultasi dan Berobat</font></h1>
-                            <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
-                                <div class="container">              
-                                    <div class ="form-group">
-                                        <h2><font face="Times New Roman" color=white size="4">Nama</font></h2>
-                                        <input type="text" placeholder="~Nama~" id="nama" required disabled/>
-                                    </div>
-                                    <div class ="form-group">
-                                        <h2><font face="Times New Roman" color=white size="4">Alamat</font></h2>
-                                        <input type="text" placeholder="~Alamat~" id="alamat" required disabled/>
-                                    </div>
-                                    <div class="form-group">
-                                        <h2><font face="Times New Roman" color=white size="4">Tanggal Berobat</font></h2>
-                                        <input type="date" placeholder="Enter Tanggal Berobat" id="tanggalBerobat" required/>
-                                    </div>
-                                    <div class ="form-group">
-                                        <h2><font face="Times New Roman" color=white size="4">Jenis Kelamin</font></h2>
-                                        <input type="text" placeholder="~Jenis Kelamin~" id="kelamin" required disabled/>
-                                    </div>
-                                    <div class="clearfix">
-                                        <button id="save" type="button">Daftar</button>
-                                    </div><br><br>
-                                </div>
-                        </div>
-                        <p id="output"></p>-->
-
         <script>
             function loadDoc() {
+                var xmlhttp = new XMLHttpRequest();
                 var url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/antrian";
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("GET", url, true);
-                xhttp.send();
-                xhttp.onreadystatechange = function () {
+                
+                xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("output").innerHTML = this.responseText;
-                        var myObj = JSON.parse(this.responseText);
-                        document.getElementById("nama").value = myObj.nama;
-                        document.getElementById("alamat").value = myObj.alamat;
+                        myFunction(this.responseText);
                     }
+                }
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+                function myFunction(response) {
+                    var arr = JSON.parse(response);
+                    var i;
+                    var out = "<table align='center' style='width:50%;' border='2'><tr><td>ID</td><td>Tanggal Berobat</td>\n\
+            <td>No RM</td><td>Nama</td><td>Alamat</td><td>Nama Klinik</td></tr>";
+                    for (i = 0; i < arr.length; i++) {
+                        out += "<tr><td>" +
+                                arr[i].id +
+                                "</td><td>" +
+                                arr[i].tangal +
+                                "</td><td>" +
+                                arr[i].noRm +
+                                "</td><td>" +
+                                arr[i].nama +
+                                "</td><td>" +
+                                arr[i].alamat +
+                                "</td><td>" +
+                                arr[i].namaKlinik +
+                                "</td><td>"
+                    }
+                    out += "</table>";
+                    document.getElementById("demo").innerHTML = out;
                 }
             }
         </script>
