@@ -119,8 +119,8 @@
                 function myFunction(response) {
                     var arr = JSON.parse(response);
                     var i;
-                    var out = "<table align='center' style='width:50%;' border='2'><tr><td>No RM</td><td>Nama</td><td>Alamat</td><td>\n\
-            <td>NIK</td><td>Tanggal Lahir</td><td>Kelamin</td></tr>";
+                    var out = "<table align='center' style='width:50%;' border='2'><tr><td>No RM</td>\n\
+            <td>Nama</td><td>Alamat</td><td>NIK</td><td>Tanggal Lahir</td><td>Kelamin</td></tr>";
                     for (i = 0; i < arr.length; i++) {
                         out +=  "<tr><td>" +
                                 arr[i].noRm +
@@ -133,8 +133,8 @@
                                 "</td><td>" +
                                 arr[i].tanggalLahir +
                                 "</td><td>" +
-                                arr[i].tanggal +
-                                "</td><td>"
+                                arr[i].kelamin +
+                                "</td><tr>"
                     }
                     out += "</table>";
                     document.getElementById("demo").innerHTML = out;
