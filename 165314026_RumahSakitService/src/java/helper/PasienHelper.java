@@ -21,7 +21,7 @@ public class PasienHelper {
 
     public PasienHelper() {
     }
-    
+
     public List<Pasien> getAllPasien() {
         List<Pasien> result = null;
         Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
@@ -45,5 +45,22 @@ public class PasienHelper {
         session.saveOrUpdate(pasien);
         transaction.commit();
         session.close();
+    }
+
+    public List<Pasien> cariPasien(
+            String noRm) {
+        Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        String query = "from Pasien p where j.noRm=:noRm";
+        Query q = session.createQuery(query);
+        q.setParameter("noRm", noRm);
+        List<Pasien> list = q.list();
+        tx.commit();
+        session.close();
+        if (list.size() > 0) {
+            return list;
+        } else {
+            return null;
+        }
     }
 }
