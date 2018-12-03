@@ -41,6 +41,7 @@ public class PasienResource {
 
     /**
      * Retrieves representation of an instance of service.PasienResource
+     *
      * @return an instance of java.lang.String
      */
     @GET
@@ -59,17 +60,18 @@ public class PasienResource {
 
     /**
      * PUT method for updating or creating an instance of PasienResource
+     *
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
-    
+
     @POST
     @Path("addPasien")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addNewPasien(String data){
+    public Response addNewPasien(String data) {
         Gson gson = new Gson();
         Pasien pasien = gson.fromJson(data, Pasien.class);
         PasienHelper helper = new PasienHelper();
@@ -80,17 +82,30 @@ public class PasienResource {
                 .entity(pasien)
                 .build();
     }
-    
+
     @GET
     @Path("cariPasien")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getJson(@QueryParam("noRm") String noRm) throws ParseException {
         PasienHelper helper = new PasienHelper();
-        List<Pasien> list = helper.cariPasien(noRm);
+        Pasien hasilCari = helper.cariPasien(noRm);
         Gson gson = new Gson();
-        String json = gson.toJson(list);
+//        return Response.status(200)
+//                .entity(json)
+//                .build();
         return Response.status(200)
-                .entity(json)
+                .entity(gson.toJson(hasilCari))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods",
+                        "GET,POST,HEAD,OPTIONS,PUT")
+                .header("Access-Control-Allow-Headers",
+                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers")
+                .header("Access-Exposed-Headers",
+                        "Access-Control-Allow-Origin,Access-Control-Allow-Credentials")
+                .header("Access-Support-Credentials",
+                        "true")
+                .header("Access-Control-Max-Age", "2")
+                .header("Access-Preflight-Maxage", "2")
                 .build();
     }
 }

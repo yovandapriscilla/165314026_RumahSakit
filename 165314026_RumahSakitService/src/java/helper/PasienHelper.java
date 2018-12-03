@@ -47,7 +47,7 @@ public class PasienHelper {
         session.close();
     }
 
-    public List<Pasien> cariPasien(
+    public Pasien cariPasien(
             String noRm) {
         Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -58,7 +58,7 @@ public class PasienHelper {
         tx.commit();
         session.close();
         if (list.size() > 0) {
-            return list;
+            return list.get(0);
         } else {
             return null;
         }
