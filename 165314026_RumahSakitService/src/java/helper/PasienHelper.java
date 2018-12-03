@@ -51,7 +51,7 @@ public class PasienHelper {
             String noRm) {
         Session session = RumahSakitHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        String query = "from Pasien p where j.noRm=:noRm";
+        String query = "from Pasien p where p.noRm=:noRm";
         Query q = session.createQuery(query);
         q.setParameter("noRm", noRm);
         List<Pasien> list = q.list();
