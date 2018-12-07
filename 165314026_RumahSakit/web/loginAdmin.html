@@ -99,7 +99,7 @@
                 <input type="password" placeholder="Enter Username" id="b" required/>
             </div>
             <div class="clearfix">
-                <button onclick="loadDoc()" type="button" class="button">Login</button>
+                <button href="indexAdmin.html" onclick="loadDoc()" type="button" class="button">Login</button>
             </div><br><br>
             <p id="demo"></p>
         </div>
@@ -114,8 +114,8 @@
                     if (this.readyState == 4 && this.status == 200) {
                         var user = JSON.parse(this.responseText);
                         if (user !== null) {
-                            alert("Selamat Datang" + user.email);
-                            open("indexAdmin.html");
+                            alert("Selamat Datang kepada " + user.email);
+                            window.open("indexAdmin.html", "_self");
                         } else {
                             alert("Login Gagal");
                         }

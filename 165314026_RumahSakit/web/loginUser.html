@@ -114,8 +114,8 @@
                     if (this.readyState == 4 && this.status == 200) {
                         var user = JSON.parse(this.responseText);
                         if (user !== null) {
-                            alert("Selamat Datang" + user.email);
-                            open("indexUser.html");
+                            alert("Selamat Datang kepada " + user.email);
+                            window.open("indexUser.html", "_self");
                         } else {
                             alert("Login Gagal");
                         }
